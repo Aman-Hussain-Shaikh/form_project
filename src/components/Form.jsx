@@ -27,7 +27,7 @@ const Form = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-   
+ 
   };
 
   return (
@@ -56,15 +56,18 @@ const Form = () => {
             ))}
           </select>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <button type="submit" style={{ ...styles.button, backgroundColor: '#007bff' }}>Submit</button>
-          <PDFDownloadLink document={<MyDocument name={name} course={course} />} fileName="offer.pdf">
-            {({ loading }) =>
-              loading ? 'Loading document...' : <button style={{ ...styles.button, backgroundColor: '#28a745' }}>Generate PDF</button>
-            }
-          </PDFDownloadLink>
-        </div>
       </form>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <button type="submit" style={{ ...styles.button, backgroundColor: '#007bff' }}>Submit</button>
+        <PDFDownloadLink
+          document={<MyDocument name={name} course={course} />}
+          fileName="File.pdf"
+        >
+          {({ loading }) =>
+            loading ? 'Loading document...' : <button style={{ ...styles.button, backgroundColor: 'green', marginLeft: '10px' }}>Generate PDF</button>
+          }
+        </PDFDownloadLink>
+      </div>
     </div>
   );
 };
@@ -86,7 +89,7 @@ const styles = StyleSheet.create({
     display: 'block',
     fontWeight: 'bold',
     marginBottom: 5,
-    textAlign: 'left', 
+    textAlign: 'left',
   },
   input: {
     padding: 10,
@@ -100,7 +103,7 @@ const styles = StyleSheet.create({
     border: 'none',
     borderRadius: 5,
     cursor: 'pointer',
-    marginLeft: 10, 
+    marginLeft: 10,
   },
   page: {
     flexDirection: 'row',
